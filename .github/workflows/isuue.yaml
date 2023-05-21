@@ -1,11 +1,15 @@
+name: issue-checklist
+
 on:
   issues:
     types: [opened]
 
 jobs:
-  greet:
-    runs-on: windows-latest
-    name: Issue comment
+  comment:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: issue comment
-        uses: kyoncy/issue-comment-actions@v1
+    - uses: ben-z/actions-comment-on-issue@1.0.2
+      with:
+        message: "Gentle reminder:\n* Did you go through all of the troubleshooting steps outlined in README.md?"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
